@@ -61,7 +61,10 @@
         <h1>Úsalo como <em>guía</em>, no como regla</h1>
         <p>El bioritmo es una tradición popular <b>sin respaldo científico</b>. Úsalo para reflexionar y divertirte, no para decisiones médicas o importantes.</p>
         <p class="muted">Tus datos se quedan solo en tu dispositivo.</p>
-        <button class="btn-start" id="introStart">Calcular mi bioritmo →</button>
+        <div class="start-btns">
+          <button class="btn-start" id="introStart">Calcular mi bioritmo →</button>
+          <button class="btn-start alt" id="introCouple">💞 Compatibilidad de pareja</button>
+        </div>
       </article>
     </div>
 
@@ -86,7 +89,7 @@
 
   <nav class="tabs" role="tablist">
     <button role="tab" class="tab on" data-tab="dia" aria-selected="true">Mi día</button>
-    <button role="tab" class="tab" data-tab="pareja" aria-selected="false">Compatibilidad</button>
+    <button role="tab" class="tab" data-tab="pareja" aria-selected="false">💞 Pareja</button>
     <button role="tab" class="tab" data-tab="info" aria-selected="false">Cómo funciona</button>
     <span class="tab-ink" id="tabInk"></span>
   </nav>
@@ -104,6 +107,12 @@
           <input id="myBirth" type="date" required>
         </label>
       </div>
+
+      <button class="couple-cta" id="coupleCta">
+        <span class="cta-hearts" aria-hidden="true">💞</span>
+        <span><b>Compatibilidad de pareja</b><small>Compara tu fecha de nacimiento con la de otra persona</small></span>
+        <span class="cta-arrow" aria-hidden="true">→</span>
+      </button>
 
       <div id="dayEmpty" class="empty">
         <div class="empty-waves"></div>

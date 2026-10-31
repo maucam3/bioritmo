@@ -412,6 +412,16 @@ $('#introNext').onclick = () => goSlide(intro.i + 1);
 $('#introSkip').onclick = closeIntro;
 $('#introStart').onclick = closeIntro;
 $('#introOpen').onclick = openIntro;
+function goCouple() {
+  document.body.classList.remove('intro-open');
+  store('sincronia-intro', true);
+  setTab('pareja');
+  scrollTo({ top: 0, behavior: 'smooth' });
+  const first = [$('#birthA'), $('#nameB'), $('#birthB')].find(el => !el.value) || $('#nameB');
+  setTimeout(() => first.focus(), 400);
+}
+$('#introCouple').onclick = goCouple;
+$('#coupleCta').onclick = goCouple;
 $('#introDots').addEventListener('click', e => { const b = e.target.closest('[data-k]'); if (b) goSlide(+b.dataset.k); });
 addEventListener('keydown', e => {
   if (!document.body.classList.contains('intro-open')) return;

@@ -224,6 +224,17 @@ input[type=date]::-webkit-calendar-picker-indicator { filter: invert(1); opacity
 @keyframes spin { to { transform: rotate(360deg); } }
 .btn-start { align-self: flex-start; border: 0; border-radius: 999px; padding: 16px 28px; font-size: 17px; font-weight: 600; background: linear-gradient(120deg, var(--pink), var(--violet)); box-shadow: 0 12px 30px -10px var(--violet); margin-top: 8px; }
 .btn-start:hover { filter: brightness(1.1); }
+.start-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.start-btns .btn-start { margin-top: 0; }
+.btn-start.alt { background: transparent; border: 1.5px solid var(--pink); box-shadow: none; }
+
+/* Acceso destacado a compatibilidad */
+.couple-cta { display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; border: 1px solid rgba(255, 122, 182, .35); border-radius: var(--radius); padding: 16px 18px; background: linear-gradient(120deg, rgba(255, 122, 182, .18), rgba(139, 123, 255, .18)); transition: transform .2s, border-color .2s; }
+.couple-cta:hover { transform: translateY(-2px); border-color: var(--pink); }
+.couple-cta > span:nth-child(2) { flex: 1; display: flex; flex-direction: column; }
+.couple-cta small { color: var(--muted); font-size: 13.5px; }
+.cta-hearts { font-size: 30px; animation: beat 1.4s ease-in-out infinite; }
+.cta-arrow { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--pink); color: #1a1030; font-weight: 700; flex: none; }
 .intro-nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px calc(20px + env(safe-area-inset-bottom)); max-width: 700px; width: 100%; margin: 0 auto; }
 .intro-skip { border: 0; background: none; color: var(--muted); padding: 10px; }
 .intro-next { width: 52px; height: 52px; border-radius: 50%; border: 0; background: var(--ink); color: var(--bg); font-size: 22px; }
