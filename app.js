@@ -277,6 +277,26 @@ function renderCompat() {
   $('#scoreLabel').textContent = label;
   $('#scoreText').textContent = `${text} Nacieron con ${delta.toLocaleString('es')} día${delta === 1 ? '' : 's'} de diferencia.`;
 
+  // Sintonía de hoy: qué tan cerca están hoy sus valores en cada ciclo (cambia a diario)
+  const now = todayUTC(), nA = lived(bA, now), nB = lived(bB, now);
+  const daily = CYCLES.map(cy => 1 - Math.abs(bio(cy.P, nA) - bio(cy.P, nB)) / 2);
+  const todayP = Math.round((daily.reduce((s, v) => s + v, 0) / daily.length) * 100);
+  $('#todayNum').textContent = todayP + '%';
+  $('#todayBar').style.setProperty('--w', todayP + '%');
+  $('#todayLabel').textContent = todayP >= 80 ? 'Hoy están en la misma onda' : todayP >= 55 ? 'Hoy se entienden bien' : todayP >= 35 ? 'Hoy van a ritmos distintos' : 'Hoy están en polos opuestos';
+  $('#todayText').textContent = `A diferencia de la de por vida, esta cambia cada día. Hoy: ${CYCLES.map((cy, i) => `${cy.name.toLowerCase()} ${Math.round(daily[i] * 100)}%`).join(', ')}.`;
+
+  // Desglose matemático con los números reales
+  $('#mathSteps').innerHTML = `
+    <ol>
+      <li>Días entre nacimientos: <code>Δ = |${state.partner.birth} − ${state.me.birth}| = ${delta.toLocaleString('es')} días</code></li>
+      <li>Para cada ciclo de periodo <i>P</i>: <code>(1 + cos(2π · Δ / P)) / 2</code>. Como el coseno se repite cada <i>P</i> días, solo importa el resto de <code>Δ ÷ P</code>.
+        <ul>${per.map(({ c, p }) => `<li style="--c:${c.color}"><b>${c.name}</b>: ${delta.toLocaleString('es')} mod ${c.P} = <b>${delta % c.P}</b> → <code>(1 + cos(2π · ${delta % c.P} / ${c.P})) / 2</code> = <b>${p}%</b></li>`).join('')}</ul>
+      </li>
+      <li>Compatibilidad de por vida = promedio de los tres: <code>(${per.map(x => x.p).join(' + ')}) / 3</code> = <b>${total}%</b></li>
+    </ol>
+    <p class="muted small">Resto 0 = las ondas van exactamente juntas (100%). Resto igual a la mitad del periodo = van al revés (0%). Las dos personas vuelven a estar 100% sincronizadas en los tres ciclos cada 23 × 28 × 33 = 21.252 días (unos 58 años).</p>`;
+
   $('#bars').innerHTML = per.map(({ c, p }) => `<article class="card bar" style="--c:${c.color}">
       <div class="bar-head"><h4>${c.icon} ${c.name}</h4><b>${p}%</b></div>
       <div class="bar-track"><span style="--w:${p}%"></span></div>
@@ -319,7 +339,7 @@ function renderCompat() {
     </div>`;
   }).join('');
 
-  renderCompat.summary = `💞 ${nameA} y ${nameB}: ${total}% de compatibilidad bioritmica (${label}). Físico ${per[0].p}% · Emocional ${per[1].p}% · Intelectual ${per[2].p}%.`;
+  renderCompat.summary = `💞 ${nameA} y ${nameB}: ${total}% de compatibilidad bioritmica de por vida (${label}). Físico ${per[0].p}% · Emocional ${per[1].p}% · Intelectual ${per[2].p}%.`;
 }
 
 // ---------- Eventos ----------

@@ -196,12 +196,30 @@
         <div class="card score">
           <div class="score-ring" id="scoreRing"></div>
           <div>
-            <p class="eyebrow">Compatibilidad bioritmica</p>
+            <p class="eyebrow">Compatibilidad de por vida</p>
             <h2 id="scoreLabel"></h2>
             <p id="scoreText" class="muted"></p>
+            <p class="forever">♾️ Este porcentaje <b>no cambia nunca</b>: solo depende de los días que separan sus nacimientos.</p>
             <button class="chip" id="shareBtn">🔗 Compartir resultado</button>
           </div>
         </div>
+
+        <div class="card today-sync">
+          <div class="today-head">
+            <div>
+              <p class="eyebrow">Sintonía de hoy</p>
+              <h3 id="todayLabel"></h3>
+            </div>
+            <b class="today-num" id="todayNum"></b>
+          </div>
+          <div class="bar-track big"><span id="todayBar"></span></div>
+          <p class="muted small" id="todayText"></p>
+        </div>
+
+        <details class="card math">
+          <summary>🧮 Cómo se calculó (paso a paso)</summary>
+          <div id="mathSteps"></div>
+        </details>
 
         <div class="bars" id="bars"></div>
 
