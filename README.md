@@ -17,7 +17,7 @@ App web instalable para conocer tu **bioritmo diario** (físico, emocional e int
 - **iPhone (Safari)**: abre el enlace → botón Compartir → *Agregar a pantalla de inicio*.
 - **PC (Chrome o Edge)**: abre el enlace → icono de instalar en la barra de direcciones.
 
-También puedes descargar el código en ZIP desde [Releases](https://github.com/maucam3/bioritmo/releases).
+También puedes descargar el código en ZIP: botón verde **Code → Download ZIP** en esta página, o directamente [aquí](https://github.com/maucam3/bioritmo/archive/refs/heads/main.zip).
 
 ## Ciclos
 
