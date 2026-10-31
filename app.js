@@ -368,7 +368,7 @@ $('#todayBtn').onclick = () => { state.date = todayUTC(); renderDay(); };
 $('#pickDate').addEventListener('change', e => { const d = parseDate(e.target.value); if (d) { state.date = d; renderDay(); } });
 $('#cycleSeg').addEventListener('click', e => { const b = e.target.closest('[data-cycle]'); if (b) { state.cycle = b.dataset.cycle; renderCompat(); } });
 $('#shareBtn').onclick = async () => {
-  const text = renderCompat.summary + ' Calcula el tuyo: ' + location.href.split('#')[0];
+  const text = renderCompat.summary + ' Calcula el tuyo: ' + APP_URL;
   try {
     if (navigator.share) await navigator.share({ text });
     else { await navigator.clipboard.writeText(text); toast('Resultado copiado 📋'); }
@@ -395,9 +395,23 @@ addEventListener('keydown', e => {
 
 $('#cyclesInfo').innerHTML = CYCLES.map(c => `<li style="--c:${c.color}"><b>${c.icon} ${c.name} · ${c.P} días</b><span>${c.desc}</span></li>`).join('');
 
+// ---------- Compartir la app ----------
+const APP_URL = 'https://maucam3.github.io/bioritmo/';
+$('#shareApp').onclick = async () => {
+  const data = { title: 'Sincronía', text: '💫 Descubre tu bioritmo diario y tu compatibilidad de pareja con Sincronía:', url: APP_URL };
+  try {
+    if (navigator.share) await navigator.share(data);
+    else { await navigator.clipboard.writeText(`${data.text} ${APP_URL}`); toast('Enlace de la app copiado 📋'); }
+  } catch { /* el usuario canceló */ }
+};
+
 // ---------- Instalación (PWA) ----------
+// Solo se ofrece en "Cómo funciona" y nunca dentro de la app ya instalada.
+const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+$('#installedNote').hidden = !standalone;
 let installEvt = null;
-addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; $('#installBtn').hidden = false; });
+addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; if (!standalone) $('#installBtn').hidden = false; });
+addEventListener('appinstalled', () => { installEvt = null; $('#installBtn').hidden = true; });
 $('#installBtn').onclick = async () => {
   if (!installEvt) return;
   installEvt.prompt();

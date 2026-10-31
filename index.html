@@ -81,9 +81,9 @@
       <span>Sincronía</span>
     </div>
     <button class="help-btn" id="introOpen" aria-label="Ver introducción" title="¿Qué es el bioritmo?">?</button>
-    <button class="install" id="installBtn" hidden>
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Instalar app
+    <button class="install" id="shareApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="6" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="19" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m8.2 10.8 7.6-4.4M8.2 13.2l7.6 4.4" stroke="currentColor" stroke-width="2"/></svg>
+      Compartir app
     </button>
   </header>
 
@@ -257,6 +257,8 @@
         <p>Dos personas son compatibles en un ciclo cuando sus ondas van en paralelo. Depende de los días que separan sus nacimientos: si la diferencia es múltiplo del periodo, la sincronía es del 100&nbsp;%; si es la mitad del periodo, sus ondas van al revés.</p>
         <p class="note">⚠️ El bioritmo es una tradición popular sin respaldo científico. Úsalo como entretenimiento y para reflexionar, no para tomar decisiones importantes.</p>
         <h3>Instalar la app</h3>
+        <p class="installed-note" id="installedNote" hidden>✅ Ya estás usando la app instalada.</p>
+        <button class="chip install-chip" id="installBtn" hidden>⬇️ Instalar en este dispositivo</button>
         <ul>
           <li><b>Android / Chrome</b>: botón <i>Instalar app</i> arriba, o menú ⋮ → <i>Instalar aplicación</i>.</li>
           <li><b>iPhone / Safari</b>: botón Compartir → <i>Agregar a pantalla de inicio</i>.</li>

@@ -201,6 +201,8 @@ input[type=date]::-webkit-calendar-picker-indicator { filter: invert(1); opacity
 .cycles-info { list-style: none; padding: 0 !important; }
 .cycles-info li { border-left: 3px solid var(--c); padding: 4px 0 4px 12px; display: flex; flex-direction: column; }
 .cycles-info span { color: var(--muted); }
+.install-chip { align-self: flex-start; background: linear-gradient(120deg, var(--pink), var(--violet)); border: 0; font-weight: 600; }
+.installed-note { color: #7ee2a8; font-weight: 500; }
 .note { background: rgba(255, 201, 74, .1); border: 1px solid rgba(255, 201, 74, .25); border-radius: 14px; padding: 12px 14px; }
 
 .toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translate(-50%, calc(100% + 80px)); visibility: hidden; background: var(--ink); color: var(--bg); padding: 12px 20px; border-radius: 999px; font-weight: 600; z-index: 80; transition: transform .35s cubic-bezier(.2, .8, .2, 1); max-width: calc(100vw - 32px); }
