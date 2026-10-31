@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sincronía · Bioritmo y compatibilidad</title>
+  <meta name="description" content="Conoce tu bioritmo físico, emocional e intelectual de cada día y tu compatibilidad bioritmica con otra persona.">
+  <meta name="theme-color" content="#0e1024">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sky" aria-hidden="true"></div>
+
+  <!-- INTRODUCCIÓN -->
+  <section class="intro" id="intro" aria-label="Introducción al bioritmo">
+    <div class="intro-track" id="introTrack">
+      <article class="slide">
+        <div class="slide-art waves-art" aria-hidden="true">
+          <svg viewBox="0 0 320 160"><path class="w1" d="M0 80 C 40 10, 80 10, 120 80 S 200 150, 240 80 S 300 20, 320 50" /><path class="w2" d="M0 80 C 50 25, 100 25, 150 80 S 250 135, 300 80 L 320 70" /><path class="w3" d="M0 80 C 60 40, 120 40, 180 80 S 300 120, 320 100" /></svg>
+        </div>
+        <p class="eyebrow">Bienvenida</p>
+        <h1>Tu cuerpo tiene <em>ritmo</em></h1>
+        <p>El <b>bioritmo</b> es una teoría que dice que, desde el día en que naces, tu energía física, tus emociones y tu mente suben y bajan en ciclos regulares, como olas.</p>
+        <p class="muted">La propusieron a finales del siglo XIX el médico Wilhelm Fliess y el psicólogo Hermann Swoboda; el ciclo intelectual se añadió en los años 1920.</p>
+      </article>
+
+      <article class="slide">
+        <p class="eyebrow">Los tres ciclos</p>
+        <h1>Tres ondas, <em>tres ritmos</em></h1>
+        <div class="intro-cycles">
+          <div style="--c:#ff5d73"><span>💪</span><b>Físico · 23 días</b><p>Energía, fuerza, resistencia y coordinación.</p></div>
+          <div style="--c:#3dd6c4"><span>💗</span><b>Emocional · 28 días</b><p>Ánimo, sensibilidad, creatividad y empatía.</p></div>
+          <div style="--c:#ffc94a"><span>🧠</span><b>Intelectual · 33 días</b><p>Memoria, concentración, lógica y comunicación.</p></div>
+        </div>
+        <p class="muted">Cuando una onda está arriba (+) ese aspecto está a tu favor; abajo (−) es tiempo de recarga. El día en que cruza el cero se llama <b>día crítico</b>.</p>
+      </article>
+
+      <article class="slide">
+        <p class="eyebrow">¿Para qué sirve?</p>
+        <h1>Aplicaciones en <em>tu día a día</em></h1>
+        <ul class="uses">
+          <li><span>🏃</span><div><b>Deporte y salud</b><p>Entrena fuerte en tus picos físicos y descansa en los bajos.</p></div></li>
+          <li><span>📚</span><div><b>Estudio y trabajo</b><p>Aprovecha tus días intelectuales altos para exámenes o tareas difíciles.</p></div></li>
+          <li><span>🤝</span><div><b>Reuniones y decisiones</b><p>Elige el mejor día para negociar, presentar o decidir algo importante.</p></div></li>
+          <li><span>💞</span><div><b>Pareja y amistad</b><p>Descubre qué tan sincronizados están sus ciclos y sus mejores días juntos.</p></div></li>
+          <li><span>🪞</span><div><b>Autoconocimiento</b><p>Entiende por qué algunos días te sientes con más o menos energía.</p></div></li>
+        </ul>
+      </article>
+
+      <article class="slide">
+        <div class="slide-art" aria-hidden="true"><div class="orb"></div></div>
+        <p class="eyebrow">Antes de empezar</p>
+        <h1>Úsalo como <em>guía</em>, no como regla</h1>
+        <p>El bioritmo es una tradición popular <b>sin respaldo científico</b>. Úsalo para reflexionar y divertirte, no para decisiones médicas o importantes.</p>
+        <p class="muted">Tus datos se quedan solo en tu dispositivo.</p>
+        <button class="btn-start" id="introStart">Calcular mi bioritmo →</button>
+      </article>
+    </div>
+
+    <div class="intro-nav">
+      <button class="intro-skip" id="introSkip">Saltar</button>
+      <div class="dots" id="introDots"></div>
+      <button class="intro-next" id="introNext" aria-label="Siguiente">→</button>
+    </div>
+  </section>
+
+  <header class="top">
+    <div class="brand">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M2 20c4.5-10 9-10 13.5 0s9 10 13.5 0 9-10 9-10" fill="none" stroke="#ff5d73" stroke-width="3" stroke-linecap="round"/><path d="M2 20c5.5-8 11-8 16.5 0s11 8 16.5 0" fill="none" stroke="#3dd6c4" stroke-width="3" stroke-linecap="round" opacity=".9"/><path d="M2 20c6.5-6 13-6 19.5 0s13 6 16.5 2" fill="none" stroke="#ffc94a" stroke-width="3" stroke-linecap="round" opacity=".9"/></svg>
+      <span>Sincronía</span>
+    </div>
+    <button class="help-btn" id="introOpen" aria-label="Ver introducción" title="¿Qué es el bioritmo?">?</button>
+    <button class="install" id="installBtn" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Instalar app
+    </button>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" class="tab on" data-tab="dia" aria-selected="true">Mi día</button>
+    <button role="tab" class="tab" data-tab="pareja" aria-selected="false">Compatibilidad</button>
+    <button role="tab" class="tab" data-tab="info" aria-selected="false">Cómo funciona</button>
+    <span class="tab-ink" id="tabInk"></span>
+  </nav>
+
+  <main>
+    <!-- MI DÍA -->
+    <section class="panel on" id="panel-dia" role="tabpanel">
+      <div class="card profile">
+        <label class="field">
+          <span>Tu nombre</span>
+          <input id="myName" placeholder="Ej. Mauricio" autocomplete="given-name" maxlength="24">
+        </label>
+        <label class="field">
+          <span>Fecha de nacimiento</span>
+          <input id="myBirth" type="date" required>
+        </label>
+      </div>
+
+      <div id="dayEmpty" class="empty">
+        <div class="empty-waves"></div>
+        <h2>Escribe tu fecha de nacimiento</h2>
+        <p>Calcularemos tus tres ciclos: físico (23 días), emocional (28 días) e intelectual (33 días).</p>
+      </div>
+
+      <div id="dayContent" hidden>
+        <div class="datebar">
+          <button class="nav-btn" id="prevDay" aria-label="Día anterior">‹</button>
+          <div class="date-mid">
+            <h2 id="dateTitle"></h2>
+            <p id="dateSub" class="muted"></p>
+          </div>
+          <button class="nav-btn" id="nextDay" aria-label="Día siguiente">›</button>
+        </div>
+        <div class="date-actions">
+          <button class="chip" id="todayBtn">Hoy</button>
+          <label class="chip chip-date">📅 Elegir fecha<input type="date" id="pickDate"></label>
+        </div>
+
+        <div class="energy card">
+          <div class="energy-ring" id="energyRing"></div>
+          <div class="energy-text">
+            <p class="eyebrow">Energía del día</p>
+            <h3 id="energyLabel"></h3>
+            <p id="energyHint" class="muted"></p>
+          </div>
+        </div>
+
+        <div class="gauges" id="gauges"></div>
+
+        <div class="card chart-card">
+          <div class="chart-head">
+            <h3>Tu mes en ondas</h3>
+            <div class="legend" id="legend"></div>
+          </div>
+          <div class="chart" id="chart"></div>
+          <p class="muted small">Toca o pasa el cursor sobre la gráfica para ver cada día. Haz clic para ir a ese día.</p>
+        </div>
+
+        <div class="split">
+          <div class="card">
+            <h3>Próximos días críticos</h3>
+            <p class="muted small">Cuando un ciclo cruza la línea del cero: días de transición, mejor ir con calma.</p>
+            <ul class="list" id="criticalList"></ul>
+          </div>
+          <div class="card">
+            <h3>Tu mejor día de la semana</h3>
+            <div id="bestWeek"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPATIBILIDAD -->
+    <section class="panel" id="panel-pareja" role="tabpanel" hidden>
+      <div class="couple">
+        <div class="card person">
+          <span class="avatar a" id="avatarA">?</span>
+          <label class="field"><span>Persona 1</span><input id="nameA" placeholder="Nombre" maxlength="24"></label>
+          <label class="field"><span>Nacimiento</span><input id="birthA" type="date"></label>
+        </div>
+        <div class="heart" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3.2 4.5 6.8 4.5c2.1 0 3.6 1.2 5.2 3 1.6-1.8 3.1-3 5.2-3 3.6 0 5.9 3.7 4.4 7.2C19.5 16.4 12 21 12 21Z"/></svg>
+        </div>
+        <div class="card person">
+          <span class="avatar b" id="avatarB">?</span>
+          <label class="field"><span>Persona 2</span><input id="nameB" placeholder="Nombre" maxlength="24"></label>
+          <label class="field"><span>Nacimiento</span><input id="birthB" type="date"></label>
+        </div>
+      </div>
+
+      <div id="compatEmpty" class="empty">
+        <div class="empty-waves"></div>
+        <h2>Escribe las dos fechas de nacimiento</h2>
+        <p>La compatibilidad compara cuánto se parecen sus ciclos: si suben y bajan al mismo tiempo, están en sincronía.</p>
+      </div>
+
+      <div id="compatContent" hidden>
+        <div class="card score">
+          <div class="score-ring" id="scoreRing"></div>
+          <div>
+            <p class="eyebrow">Compatibilidad bioritmica</p>
+            <h2 id="scoreLabel"></h2>
+            <p id="scoreText" class="muted"></p>
+            <button class="chip" id="shareBtn">🔗 Compartir resultado</button>
+          </div>
+        </div>
+
+        <div class="bars" id="bars"></div>
+
+        <div class="card chart-card">
+          <div class="chart-head">
+            <h3>Sus ondas juntas · próximos 30 días</h3>
+            <div class="seg" id="cycleSeg"></div>
+          </div>
+          <div class="chart" id="coupleChart"></div>
+          <p class="muted small"><span class="sw-solid"></span> <b id="lgA">Persona 1</b> &nbsp; <span class="sw-dash"></span> <b id="lgB">Persona 2</b> &nbsp;·&nbsp; zona iluminada = ambos en fase alta</p>
+        </div>
+
+        <div class="card">
+          <h3>Mejores días para estar juntos</h3>
+          <p class="muted small">Días del próximo mes en que los dos tienen los ciclos más altos al mismo tiempo.</p>
+          <div class="best-days" id="bestDays"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFO -->
+    <section class="panel" id="panel-info" role="tabpanel" hidden>
+      <div class="card prose">
+        <h2>¿Qué es el bioritmo?</h2>
+        <p>La teoría del bioritmo dice que, desde el día en que naces, tres ciclos suben y bajan como ondas:</p>
+        <ul class="cycles-info" id="cyclesInfo"></ul>
+        <h3>Cómo se calcula</h3>
+        <p>Se cuentan los días que has vivido (<i>t</i>) y cada ciclo vale <code>sen(2π · t / periodo)</code>, entre −100&nbsp;% y +100&nbsp;%.</p>
+        <ul>
+          <li><b>Fase alta (+)</b>: el ciclo está a favor.</li>
+          <li><b>Fase baja (−)</b>: tiempo de recarga.</li>
+          <li><b>Día crítico</b>: el ciclo cruza el cero; días de cambio e inestabilidad.</li>
+        </ul>
+        <h3>Compatibilidad</h3>
+        <p>Dos personas son compatibles en un ciclo cuando sus ondas van en paralelo. Depende de los días que separan sus nacimientos: si la diferencia es múltiplo del periodo, la sincronía es del 100&nbsp;%; si es la mitad del periodo, sus ondas van al revés.</p>
+        <p class="note">⚠️ El bioritmo es una tradición popular sin respaldo científico. Úsalo como entretenimiento y para reflexionar, no para tomar decisiones importantes.</p>
+        <h3>Instalar la app</h3>
+        <ul>
+          <li><b>Android / Chrome</b>: botón <i>Instalar app</i> arriba, o menú ⋮ → <i>Instalar aplicación</i>.</li>
+          <li><b>iPhone / Safari</b>: botón Compartir → <i>Agregar a pantalla de inicio</i>.</li>
+          <li><b>PC (Chrome o Edge)</b>: icono de instalar en la barra de direcciones.</li>
+        </ul>
+        <p class="muted small">Tus datos se guardan solo en tu dispositivo. Una vez instalada, funciona sin internet.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="tooltip" id="tooltip" role="status"></div>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
