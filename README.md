@@ -1,40 +1,49 @@
-# Sincronía · Bioritmo y compatibilidad
+# Sincronía · Biorhythm & compatibility
 
-App web instalable para conocer tu **bioritmo diario** (físico, emocional e intelectual) y tu **compatibilidad bioritmica** con otra persona.
+Installable web app to check your **daily biorhythm** (physical, emotional and intellectual) and your **biorhythm compatibility** with another person.
 
-**👉 Abrir la app: <https://maucam3.github.io/bioritmo/>**
+**👉 Open the app: <https://maucam3.github.io/bioritmo/>**
 
-## Qué incluye
+> The app itself is in Spanish.
 
-- **Introducción**: qué es el bioritmo, sus tres ciclos y sus aplicaciones.
-- **Mi día**: energía general, los tres ciclos con su tendencia, lectura del día, gráfica del mes, próximos días críticos y el mejor día de la semana.
-- **Compatibilidad**: porcentaje total y por ciclo, ondas de ambos en los próximos 30 días y los mejores días para estar juntos.
-- Funciona **sin internet** una vez instalada; los datos se guardan solo en tu dispositivo.
+## Features
 
-## Cómo instalarla (descargarla)
+- **Intro**: what biorhythms are, the three cycles and how they are used.
+- **My day**: overall energy, the three cycles with their trend, a daily reading, a monthly chart, upcoming critical days and the best day of the week.
+- **Couple**: lifetime compatibility (overall and per cycle), today's sync, the step-by-step math, both waves over the next 30 days and the best days to spend together.
+- **Share app** button that opens the phone's share menu (or copies the link on desktop).
+- Works **offline** once installed; data is stored only on your device.
 
-- **Android (Chrome)**: abre el enlace → botón *Instalar app* o menú ⋮ → *Instalar aplicación*.
-- **iPhone (Safari)**: abre el enlace → botón Compartir → *Agregar a pantalla de inicio*.
-- **PC (Chrome o Edge)**: abre el enlace → icono de instalar en la barra de direcciones.
+## Install on your phone
 
-También puedes descargar el código en ZIP: botón verde **Code → Download ZIP** en esta página, o directamente [aquí](https://github.com/maucam3/bioritmo/archive/refs/heads/main.zip).
+- **Android (Chrome)**: open the link → menu ⋮ → *Install app* (or *Add to Home screen*).
+- **iPhone (Safari)**: open the link → Share button → *Add to Home Screen*.
+- **Desktop (Chrome or Edge)**: open the link → install icon in the address bar.
 
-## Ciclos
+The installed app updates itself the next time you open it with an internet connection.
 
-| Ciclo | Periodo | Fórmula |
+You can also download the source as a ZIP: green **Code → Download ZIP** button on this page, or directly [here](https://github.com/maucam3/bioritmo/archive/refs/heads/main.zip).
+
+## The math
+
+| Cycle | Period | Formula |
 |---|---|---|
-| Físico | 23 días | `sen(2π·t/23)` |
-| Emocional | 28 días | `sen(2π·t/28)` |
-| Intelectual | 33 días | `sen(2π·t/33)` |
+| Physical | 23 days | `sin(2π·t/23)` |
+| Emotional | 28 days | `sin(2π·t/28)` |
+| Intellectual | 33 days | `sin(2π·t/33)` |
 
-`t` = días vividos. La compatibilidad por ciclo es `(1 + cos(2π·Δ/periodo)) / 2`, con `Δ` = días entre ambos nacimientos.
+- `t` = days since birth.
+- **Compatibility per cycle**: `(1 + cos(2π·Δ/period)) / 2`, where `Δ` = days between both birth dates. Since `Δ` never changes, this is a lifetime value.
+- **Lifetime compatibility**: the average of the three cycles.
+- **Today's sync**: `1 − |A − B| / 2` for each cycle on a given day, averaged.
+- All three cycles line up again every 23 · 28 · 33 = 21,252 days (~58 years).
 
-> El bioritmo es una tradición popular sin respaldo científico: úsalo como entretenimiento.
+> Biorhythms are a popular tradition with no scientific backing: use the app for fun.
 
-## Verlo en local
+## Run locally
 
 ```bash
 python -m http.server 5501
 ```
 
-y abre <http://localhost:5501>.
+then open <http://localhost:5501>.
